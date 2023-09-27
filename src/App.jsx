@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
 
 import Home from './pages/Home'
 import Movie from './pages/Movie'
 import Search from './pages/Search'
 
 import './App.css'
+import { Container } from '@mui/system'
 
 
 function App() {
@@ -14,13 +16,16 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <Header/>
+          <Container>
         <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/movie/:id" element={<Movie/>}/>
-        <Route path="/search" element={<Search/>}/>
+            <Route path="/" element={<Home />} />
+            <Route path="/movie/:id" element={<Movie />} />
+            <Route path="/search" element={<Search />} />
         </Routes>
+          </Container>
       </BrowserRouter>
-      
+
     </>
   )
 }
