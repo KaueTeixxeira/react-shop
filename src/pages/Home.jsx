@@ -1,71 +1,38 @@
 import { useState, useEffect } from 'react'
 import MovieService from '../service/movie/MovieService'
-import Slider from 'react-slick';
+import MoviesCarousel from '../components/movie-carousel/MoviesCarousel'
+import MovieCard from '../components/movie-card/MovieCard'
+import Data from '../top-movies.json'
 
 const Home = () => {
   const [topMovies, setTopMovies] = useState([])
+  const [popular, setPopular] = useState([])
+  const [upcoming, setUpcoming] = useState([])
+  const [nowPlaying, setNowPlaying] = useState([])
 
   const getTopRatedMovies= async () => {
     const movies = await MovieService.getTopRatedMovies()
-    console.log(movies)
-    setTopMovies(movies.results)
+    console.log(JSON.stringify(movies.results))
+    // setTopMovies(movies.results)
   }
 
-
   useEffect(() => {
-    console.log(topMovies)
-  }, [topMovies])
-
-  useEffect(() => {
-    getTopRatedMovies()
+    // getTopRatedMovies()
+    console.log(Data)
+    setTopMovies(Data.top_movies)
+    setPopular(Data.popular)
+    setUpcoming(Data.upcoming)
+    setNowPlaying(Data.now_playing)
   }, [])
 
 
-  const settingsDesk = {
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    swipeToSlide: true,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    dots: true,
-    infinite: true,
-    arrows: false,
-    responsive: [
-        {
-            breakpoint: 768,
-            settings: {
-                arrows: false,
-                centerPadding: '40px',
-                slidesToShow: 6,
-                slidesToScroll: 1,
-                swipeToSlide: true,
-                arrows: false,
-            }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                arrows: false,
-                centerPadding: '40px',
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                swipeToSlide: true,
-                arrows: false,
-            }
-        }
-    ]
-};
+ 
 
   return (
     <>
-    <div data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
-    <div><h3>1</h3></div>
-    <div><h3>2</h3></div>
-    <div><h3>3</h3></div>
-    <div><h3>4</h3></div>
-    <div><h3>5</h3></div>
-    <div><h3>6</h3></div>
-  </div>
+     <MoviesCarousel></MoviesCarousel>
+
+     {topMovies.length > 0 && <MovieCard movie={topMovies[0]}></MovieCard>}
     </>
   )
 }

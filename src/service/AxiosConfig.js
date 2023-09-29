@@ -5,7 +5,6 @@ const token = import.meta.env.VITE_TOKEN
 
 const axiosInstance = axios.create({
     baseURL: movieURL
-
 }
 )
 
