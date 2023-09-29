@@ -6,7 +6,7 @@ const token = import.meta.env.VITE_TOKEN
 const axiosInstance = axios.create({
     baseURL: movieURL
 
-},
+}
 )
 
 const getAuthHeaders = (token) => {
@@ -23,7 +23,6 @@ axiosInstance.interceptors.request.use(
         return config
     },
     (error) => {
-        console.log("didnotwork")
         return Promise.reject(error)
     }
 )
