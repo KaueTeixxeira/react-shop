@@ -18,7 +18,7 @@ const Home = () => {
 
   useEffect(() => {
     // getTopRatedMovies()
-    console.log(Data)
+    // console.log(Data)
     setTopMovies(Data.top_movies)
     setPopular(Data.popular)
     setUpcoming(Data.upcoming)

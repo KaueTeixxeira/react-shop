@@ -1,0 +1,27 @@
+.animated-button {
+    color: white;
+    background: linear-gradient(90deg, rgba(36, 143, 190, 1) 0%, rgba(67, 58, 171, 1) 49%, rgba(124, 19, 158, 1) 100%);
+    background-size: 200%;
+   
+  }
+  
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 0;
+    }
+    50% {
+      background-position: 99% 0;
+    }
+
+    100% {
+        background-position: 0% 0;
+      }
+  }
+  
+  .animated-button:hover {
+    transition: background-position 0.3s ease;
+  
+    animation: gradientShift 2s linear infinite;
+    background-position: 0 0;
+  }
+  
