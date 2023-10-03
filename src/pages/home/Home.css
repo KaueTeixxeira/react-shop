@@ -1,0 +1,15 @@
+.middle_div {
+    width: 100%;
+    /* Defina a largura da div como desejado */
+    height: 30vh;
+    /* Defina a altura da div como desejado (usando 100vh para ocupar a altura da tela) */
+    background-image: url("./background.jpg");
+    /* URL da imagem */
+    background-size: cover;
+    /* Dimensiona a imagem para cobrir toda a div */
+    background-position: center;
+    /* Centraliza a imagem na div */
+    background-repeat: no-repeat;
+    /* Evita que a imagem seja repetida */
+
+}

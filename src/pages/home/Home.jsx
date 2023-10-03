@@ -30,6 +30,8 @@ const Home = () => {
     <>
       {topMovies.length > 0 && <MoviesCarousel movies={topMovies} title={"Top Movies"}></MoviesCarousel>}
       {topMovies.length > 0 && <MoviesCarousel movies={popular} title={"Popular"}></MoviesCarousel>}
+      <div className='middle_div'>
+      </div>
       {topMovies.length > 0 && <MoviesCarousel movies={upcoming} title={"Up Coming"}></MoviesCarousel>}
       {topMovies.length > 0 && <MoviesCarousel movies={nowPlaying} title={"Now Playing"}></MoviesCarousel>}
 

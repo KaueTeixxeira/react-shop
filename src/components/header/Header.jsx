@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -23,17 +23,8 @@ const pages = ['Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header() {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
-
-
+    const [search, setSearch] = useState("")
 
     const SearchIconWrapper = styled('div')(({ theme }) => ({
         padding: theme.spacing(0, 2),
@@ -77,15 +68,18 @@ function Header() {
         },
     }));
 
-    const styles = {
-        linkContainer: {
-            display: 'flex',
-            alignItems: 'center',
-            textDecoration: 'none',
-            color: 'inherit',
-        },
+
+    const handleChange = (e) => {
+        e.preventDefault();
+
+        const { value } = e.target;
+        setSearch(value);
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(search);
+    };
 
 
     return (
@@ -119,14 +113,18 @@ function Header() {
                         </Typography>
                     </Link>
 
-                    <Search>
+                    <Search >
                         <SearchIconWrapper>
                             <SearchIcon />
                         </SearchIconWrapper>
-                        <StyledInputBase
-                            placeholder="Search…"
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
+                        <form onSubmit={handleSubmit}>
+                            <StyledInputBase
+                                placeholder="Search…"
+                                inputProps={{ 'aria-label': 'search' }}
+                                value={search}
+                                onChange={handleChange}
+                            />
+                        </form>
                     </Search>
 
                 </Toolbar>
