@@ -8,3 +8,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+body {
+    background: linear-gradient(90deg, rgba(36, 143, 190, .25) 0%, rgba(67, 58, 171, 0) 49%, rgba(124, 19, 158, .25) 100%);
+}
