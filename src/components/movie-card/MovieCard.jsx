@@ -18,30 +18,25 @@ const MovieCard = ({ movie }) => {
     console.log(movie)
   }, [])
 
-  const button = {
-    color: "white",
-    background: 'linear-gradient(90deg, rgba(36,143,190,1) 0%, rgba(67,58,171,1) 49%, rgba(124,19,158,1) 100%)',
-  }
+ 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 200, minHeight: 355, maxHeight: 355, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginBottom: 2, alignContent: 'space-between'}} className="card_movie">
       <CardMedia
         component="img"
-        alt="green iguana"
-        height="300vh"
+        alt={movie.title}
         image="/matrixx.jpg"
-      />
+       className='img_movie'/>
       <CardContent>
-        <Typography variant="h5" component="div" sx={{ display: "flex", justifyContent: "center" }}>
+        <Typography variant="h6" component="div" className='movie_tittle'>
           {movie.title}
         </Typography>
       </CardContent>
       <CardActions sx={{
         display: 'flex',
-        justifyContent: 'center',
-        paddingBottom: '20px'
+        justifyContent: 'center'
       }}>
         <Link to={'/movie/' + movie.id}>
-          <Button size="medium"  className="animated-button">More details</Button>
+          <Button size="medium"  className="animated-button" sx={{color: "white"}}>More details</Button>
         </Link>
       </CardActions>
     </Card>

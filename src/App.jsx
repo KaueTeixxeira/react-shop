@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/header/Header'
 
-import Home from './pages/Home'
+import Home from './pages//home/Home'
 import Movie from './pages/Movie'
 import Search from './pages/Search'
 
@@ -16,14 +16,14 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header/>
-          <Container>
-        <Routes>
+        <Header />
+        <Container>
+          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/movie/:id" element={<Movie />} />
             <Route path="/search" element={<Search />} />
-        </Routes>
-          </Container>
+          </Routes>
+        </Container>
       </BrowserRouter>
 
     </>

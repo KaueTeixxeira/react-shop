@@ -1,27 +1,69 @@
 .animated-button {
-    color: white;
     background: linear-gradient(90deg, rgba(36, 143, 190, 1) 0%, rgba(67, 58, 171, 1) 49%, rgba(124, 19, 158, 1) 100%);
     background-size: 200%;
-   
-  }
-  
-  @keyframes gradientShift {
+}
+
+@keyframes gradientShift {
     0% {
-      background-position: 0% 0;
+        background-position: 0% 0;
     }
+
     50% {
-      background-position: 99% 0;
+        background-position: 100% 0;
     }
 
     100% {
         background-position: 0% 0;
-      }
-  }
-  
-  .animated-button:hover {
-    transition: background-position 0.3s ease;
-  
+    }
+}
+
+.animated-button:hover {
     animation: gradientShift 2s linear infinite;
-    background-position: 0 0;
-  }
-  
+   
+}
+
+
+.movie_tittle {
+    display: flex;
+    justify-content: center;
+    color: #000;
+}
+
+.img_movie {
+    width: 100%;
+    height: 175px;
+}
+
+.css-o69gx8-MuiCardMedia-root {
+    display: block;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-position: center;
+    background-position: bottom;
+    width: 100%;
+    object-fit: cover;
+
+    /* Adicione as propriedades de transição */
+    transition: transform 0.3s ease; /* Ajuste a duração e a função de temporização conforme necessário */
+}
+
+
+
+.card_movie:hover {
+    transform: scale(1.01); 
+}
+
+.card_movie:hover .img_movie{
+    transform: scale(1.05); 
+}
+
+.css-jsl5yd-MuiPaper-root-MuiCard-root:hover {
+    box-shadow: 5px 5px 8px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
+    
+}
+
+.css-ogfe1h-MuiPaper-root-MuiCard-root {
+    min-height: 350px;
+}
+

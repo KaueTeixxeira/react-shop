@@ -1,0 +1,27 @@
+.carousel_title {
+    width: fit-content;
+}
+
+.tittle {
+    padding: 0 10px 5px 10px;
+    font-size: 25px;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+
+.line {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(36, 143, 190, 1) 0%, rgba(67, 58, 171, 1) 49%, rgba(124, 19, 158, 1) 100%);
+    border-radius: 50%;
+}
+
+.bg_carousel {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.carousel_container {
+    padding: 20px 0px;
+    background: linear-gradient(90deg, rgba(36, 143, 190, 0.02) 0%, rgba(67, 58, 171, 0.2) 49%, rgba(124, 19, 158, 0.02) 100%);
+}
