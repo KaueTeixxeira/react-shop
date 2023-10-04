@@ -1,3 +1,4 @@
+import { Title } from '@mui/icons-material';
 import { useEffect } from 'react'
 import Slider from 'react-slick';
 import MovieCard from '../movie-card/MovieCard';
@@ -39,12 +40,10 @@ var settings = {
         slidesToScroll: 1
       }
     }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
   ]
 
 };
+
 
 
 
@@ -52,13 +51,12 @@ const MoviesCarousel = ({ movies, title }) => {
 
 
 
-
+  useEffect(() => {
+    console.log(title)
+  }, [])
   return (
     <div className='carousel_container'>
-      <div className='carousel_title'>
-        <h2 className='tittle'>{title}</h2>
-        <div className='line'></div>
-      </div>
+      <Title title={title}/>
       <br></br>
       <div className='bg_carousel'>
 

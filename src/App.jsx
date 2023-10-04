@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/header/Header'
 
-import Home from './pages//home/Home'
-import Movie from './pages/Movie'
-import Search from './pages/Search'
+import Home from './pages/home/Home'
+import Movie from './pages/movie/Movie'
+import Search from './pages/search/Search'
 
 import './App.css'
 import { Container } from '@mui/system'

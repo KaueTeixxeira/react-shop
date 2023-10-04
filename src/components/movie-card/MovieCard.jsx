@@ -15,7 +15,6 @@ const MovieCard = ({ movie }) => {
 
   // let urlImage = import.meta.env.VITE_IMG
   useEffect(() => {
-    console.log(movie)
   }, [])
 
  
