@@ -1,7 +1,7 @@
-import { Title } from '@mui/icons-material';
 import { useEffect } from 'react'
 import Slider from 'react-slick';
 import MovieCard from '../movie-card/MovieCard';
+import Title from '../title/Title';
 
 import './MoviesCarousel.css'
 import "./slick-theme.css";
@@ -50,10 +50,6 @@ var settings = {
 const MoviesCarousel = ({ movies, title }) => {
 
 
-
-  useEffect(() => {
-    console.log(title)
-  }, [])
   return (
     <div className='carousel_container'>
       <Title title={title}/>

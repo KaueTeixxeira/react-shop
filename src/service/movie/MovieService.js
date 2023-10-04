@@ -21,6 +21,10 @@ const MovieService = {
     searchMovie: async (search, currentPage) => {
         const response = await axios.get('search/movie?query=' + search + "&page=" + currentPage)
         return response.data
+    },
+    getMovie: async (movieId) => {
+        const response = await axios.get('movie/' + movieId)
+        return response.data
     }
 }
 

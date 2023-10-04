@@ -17,25 +17,33 @@ const MovieCard = ({ movie }) => {
   useEffect(() => {
   }, [])
 
- 
+
   return (
-    <Card sx={{ maxWidth: 200, minHeight: 355, maxHeight: 355, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginBottom: 2, alignContent: 'space-between'}} className="card_movie">
+    <Card sx={{ maxWidth: 200, minHeight: 355, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginBottom: 2, alignContent: 'space-between' }} className="card_movie">
       <CardMedia
         component="img"
         alt={movie.title}
         image="/matrixx.jpg"
-       className='img_movie'/>
+        className='img_movie' />
       <CardContent>
-        <Typography variant="h6" component="div" className='movie_tittle'>
-          {movie.title}
-        </Typography>
+        {movie.title.length > 49 ? (
+          <Typography variant="h6" component="div" className='movie_tittle' sx={{ fontSize: 14.9 }}>
+            {movie.title}
+          </Typography>
+        ):
+        (
+            <Typography variant="h6" component="div" className='movie_tittle' sx={{ fontSize: 18 }}>
+              {movie.title}
+            </Typography>
+        )}
+        
       </CardContent>
       <CardActions sx={{
         display: 'flex',
         justifyContent: 'center'
       }}>
         <Link to={'/movie/' + movie.id}>
-          <Button size="medium"  className="animated-button" sx={{color: "white"}}>More details</Button>
+          <Button size="medium" className="animated-button" sx={{ color: "white" }}>More details</Button>
         </Link>
       </CardActions>
     </Card>

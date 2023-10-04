@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect} from 'react'
 
 import "./Title.css"
 const Title = ({title}) => {

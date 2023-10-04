@@ -27,9 +27,8 @@ function Header() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (search.length > 0) {
-            console.log(search)
-            navigate(`/search?q=${search}`)
             setSearch("")
+            navigate(`/search?q=${search}`)
         }
     };
 
@@ -79,7 +78,7 @@ function Header() {
                             onInput={(e) => {
                                 setSearch(e.target.value);
                             }}
-                            
+                            value={search}
                             label="Search a movie"
                             variant="outlined"
                             placeholder="Search..."
