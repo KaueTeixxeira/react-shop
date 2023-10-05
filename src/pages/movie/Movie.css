@@ -2,7 +2,6 @@
     padding: 20px 0;
     display: flex;
     align-items: center;
-    flex-direction: column;
 }
 
 .container_movie > img {
@@ -20,11 +19,14 @@
 }
 .title_div > h2 {
     text-align: center;
+    font-size: 1.8rem;
+    padding: 0;
 }
 
 .star_icon {
     width: 10%;
     color: #e8b315;
+   
 }
 
 .movie_rate {
@@ -36,6 +38,6 @@
 
 .infos {
     width: 60%;
-   
     background-color: #e8b315;
 }
+

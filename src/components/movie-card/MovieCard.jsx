@@ -14,8 +14,12 @@ import './MovieCard.css';
 const MovieCard = ({ movie }) => {
 
   // let urlImage = import.meta.env.VITE_IMG
-  useEffect(() => {
-  }, [])
+  const truncateTitle = (title, maxLength) => {
+    if (title.length > maxLength) {
+      return title.slice(0, maxLength) + '...';
+    }
+    return title;
+  };
 
 
   return (
@@ -26,17 +30,9 @@ const MovieCard = ({ movie }) => {
         image="/matrixx.jpg"
         className='img_movie' />
       <CardContent>
-        {movie.title.length > 49 ? (
-          <Typography variant="h6" component="div" className='movie_tittle' sx={{ fontSize: 14.9 }}>
-            {movie.title}
-          </Typography>
-        ):
-        (
-            <Typography variant="h6" component="div" className='movie_tittle' sx={{ fontSize: 18 }}>
-              {movie.title}
-            </Typography>
-        )}
-        
+        <Typography variant="h6" component="div" className='movie_tittle' sx={{ fontSize: 18, minWidth: 28 }}>
+          {truncateTitle(movie.title, 46)}
+        </Typography>
       </CardContent>
       <CardActions sx={{
         display: 'flex',

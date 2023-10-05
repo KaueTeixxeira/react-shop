@@ -25,6 +25,7 @@ const Movie = () => {
 
   const { id } = useParams()
   const [movie, setMovie] = useState({})
+  const [isLight, setIsLight] = useState(true)
 
   const getMovie = async () => {
     const response = await MovieService.getMovie(id)
@@ -36,7 +37,7 @@ const Movie = () => {
 
   useEffect(() => {
     getMovie()
-    Vibrant.from('http://localhost:5173/matrixx.jpg').getPalette((err, palette) => {
+    Vibrant.from('http://localhost:5173/besouro.jpg').getPalette((err, palette) => {
       if (err) {
         console.error('Erro ao extrair paleta de cores:', err);
         return;
@@ -54,41 +55,56 @@ const Movie = () => {
         }
         throw new Error('Formato de cor inválido.');
       }
+
       const predominantColor = palette.Vibrant.getHex();
-      const vibrantColor = hexToRgbA(palette.Vibrant.getHex(), 0.7);
-      const mutedColor = hexToRgbA(palette.Muted.getHex(), 0.1);
-      const darkVibrantColor = palette.DarkVibrant.getHex();
+      const vibrantColor = hexToRgbA(palette.Vibrant.getHex(), 1);
+      const mutedColor = hexToRgbA(palette.Muted.getHex(), 1);
+      const darkVibrantColor = hexToRgbA(palette.DarkVibrant.getHex(), 1);
 
       console.log('Cor predominante:', predominantColor);
       console.log('Cor vibrante:', vibrantColor);
       console.log('Cor suave:', mutedColor);
       console.log('Cor escura vibrante:', darkVibrantColor);
 
-      document.body.style.background = `linear-gradient(90deg, ${vibrantColor} 0%, ${mutedColor} 50%, ${vibrantColor} 100%)`;
-   
+      document.body.style.background = `linear-gradient(90deg, ${vibrantColor} 0%, ${vibrantColor} 20%, ${mutedColor} 100% `;
 
+      function isColorLight(rgbColor, threshold = 128) {
+        // Extrai os componentes RGB da cor
+        const [red, green, blue] = rgbColor.match(/\d+/g);
+
+        // Calcula o valor médio dos componentes RGB
+        const averageColorValue = (parseInt(red) + parseInt(green) + parseInt(blue)) / 3;
+
+        // Compara o valor médio com o limite
+        return averageColorValue > threshold;
+      }
+
+      const isLight = isColorLight(mutedColor);
+
+      if (isLight) {
+        // Use cor de fonte preta
+        document.body.style.color = 'black';
+      } else {
+        // Use cor de fonte branca
+        document.body.style.color = 'white';
+      }
     });
     return () => {
       document.body.style.background = '';
+      document.body.style.color = '';
     };
   }, [])
 
   return (
     <>{movie &&
       <div className='container_movie'>
-        <img src="/matrixx.jpg" alt={movie.title} />
+        <img src="/besouro.jpg" alt={movie.title} />
         <div className="title_div">
           <h2>{movie.title}</h2>
           <h3 className='movie_rate'><StarIcon className='star_icon' />{movie.vote_average}</h3>
           <h3 className='movie_rate'>{movie.tagline}</h3>
         </div>
-        <div className="infos">
-            <p>aaaaaaaaaaaa</p>
-            <p>aaaaaaaaaaaa</p>
-            <p>aaaaaaaaaaaa</p>
-            <p>aaaaaaaaaaaa</p>
-            <p>aaaaaaaaaaaa</p>
-          </div>
+
       </div>
     }</>
   )
