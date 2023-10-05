@@ -30,7 +30,7 @@ const MovieCard = ({ movie }) => {
         image="/matrixx.jpg"
         className='img_movie' />
       <CardContent>
-        <Typography variant="h6" component="div" className='movie_tittle' sx={{ fontSize: 18, minWidth: 28 }}>
+        <Typography variant="h6" component="div" className='movie_tittle' sx={{ fontSize: 18, minWidth: 28, fontFamily: "'Oswald', sans-serif" }}>
           {truncateTitle(movie.title, 46)}
         </Typography>
       </CardContent>
