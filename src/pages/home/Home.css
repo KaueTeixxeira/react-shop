@@ -3,7 +3,7 @@
     /* Defina a largura da div como desejado */
     height: 30vh;
     /* Defina a altura da div como desejado (usando 100vh para ocupar a altura da tela) */
-    background-image: url("./background.jpg");
+   background-color: black;
     /* URL da imagem */
     background-size: cover;
     /* Dimensiona a imagem para cobrir toda a div */
