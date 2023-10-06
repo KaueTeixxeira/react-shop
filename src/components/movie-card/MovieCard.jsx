@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom'
 import { padding } from '@mui/system';
 
+import StarIcon from '@mui/icons-material/Star';
 import './MovieCard.css';
 
 const MovieCard = ({ movie }) => {
@@ -23,16 +24,17 @@ const MovieCard = ({ movie }) => {
 
 
   return (
-    <Card sx={{ maxWidth: 200, minHeight: 355, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginBottom: 2, alignContent: 'space-between' }} className="card_movie">
+    <Card sx={{ maxWidth: 200, minHeight: 355, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginBottom: 2, alignContent: 'space-between', bgcolor: '#000'}} className="card_movie">
       <CardMedia
         component="img"
         alt={movie.title}
-        image="/matrixx.jpg"
+        image="/minions.jpg"
         className='img_movie' />
       <CardContent>
-        <Typography variant="h6" component="div" className='movie_tittle' sx={{ fontSize: 18, minWidth: 28, fontFamily: "'Oswald', sans-serif" }}>
-          {truncateTitle(movie.title, 46)}
+        <Typography variant="h6" component="div" className='movie_tittle' sx={{ fontSize: 20, minWidth: 28, fontFamily: "'Sofia Sans Condensed', sans-serif", color: '#fff' }}>
+          {truncateTitle(movie.title, 38)}
         </Typography>
+        <h3 className='movie_rate'><StarIcon className='star_icon'/>{movie.vote_average}</h3>
       </CardContent>
       <CardActions sx={{
         display: 'flex',

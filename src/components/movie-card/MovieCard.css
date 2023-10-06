@@ -1,6 +1,7 @@
 .animated-button {
     background: linear-gradient(90deg, rgba(36, 143, 190, 1) 0%, rgba(67, 58, 171, 1) 49%, rgba(124, 19, 158, 1) 100%);
     background-size: 200%;
+  
 }
 
 @keyframes gradientShift {
@@ -26,6 +27,7 @@
 .movie_tittle {
     display: flex;
     justify-content: center;
+    
     color: #000;
 }
 
@@ -59,7 +61,7 @@
 }
 
 .css-jsl5yd-MuiPaper-root-MuiCard-root:hover {
-    box-shadow: 5px 5px 8px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
+    box-shadow: 50px 50px 8px -1px rgba(0,0,0,0.2), 0px 10px 10px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
     
 }
 
@@ -67,3 +69,12 @@
     min-height: 350px;
 }
 
+.movie_rate {
+    text-align: left;
+    color: #fff;
+    font-family: 'Sofia Sans Condensed', sans-serif;
+}
+
+.card_movie {
+    background-color: #000;
+}

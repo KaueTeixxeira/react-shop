@@ -19,8 +19,9 @@
 }
 .title_div > h2 {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2rem;
     padding: 0;
+    font-family: 'Staatliches', cursive;
 }
 
 .star_icon {
