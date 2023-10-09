@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 
 import SvgIcon from '@mui/material/SvgIcon';
 import Vibrant from 'node-vibrant';
+import SavingsIcon from '@mui/icons-material/Savings';
+import PaidIcon from '@mui/icons-material/Paid';
 
 import MovieService from '../../service/movie/MovieService'
 import StarIcon from '@mui/icons-material/Star';
@@ -25,10 +27,21 @@ const Movie = () => {
 
   const { id } = useParams()
   const [movie, setMovie] = useState({})
-  const [isLight, setIsLight] = useState(true)
+  const [dataLanc, setDataLanc] = useState("Indefinido")
+  const [generos, setGeneros] = useState([])
+
 
   const getMovie = async () => {
     const response = await MovieService.getMovie(id)
+    setDataLanc(response.release_date.split("-")[0])
+    let gene = "";
+    response.genres.forEach((genero, index) => {
+      gene += genero.name;
+      if (index !== response.genres.length - 1) {
+        gene += " / ";
+      }
+    });
+    setGeneros(gene);
     console.log(response)
     setMovie(response)
   }
@@ -37,7 +50,7 @@ const Movie = () => {
 
   useEffect(() => {
     getMovie()
-    Vibrant.from('http://localhost:5173/besouro.jpg').getPalette((err, palette) => {
+    Vibrant.from('http://localhost:5173/elementos.jpg').getPalette((err, palette) => {
       if (err) {
         console.error('Erro ao extrair paleta de cores:', err);
         return;
@@ -95,14 +108,44 @@ const Movie = () => {
     };
   }, [])
 
+  const rate = () => {
+    if (movie.vote_average !== undefined) {
+      return movie.vote_average.toFixed(1);
+    }
+    return "N/A";
+  }
+
+  function formatNumberWithCommas(number) {
+    if (typeof number !== 'number') {
+      return number; // Retorna o valor original se não for um número
+    }
+    return number.toLocaleString('en-US'); // Substitua 'en-US' pelas configurações regionais desejadas
+  }
+
   return (
     <>{movie &&
       <div className='container_movie'>
-        <img src="/besouro.jpg" alt={movie.title} />
-        <div className="title_div">
-          <h2>{movie.title}</h2>
-          <h3 className='movie_rate'><StarIcon className='star_icon' />{movie.vote_average}</h3>
-          <h3 className='movie_rate'>{movie.tagline}</h3>
+        <img src="/elementos.jpg" alt={movie.title} />
+        <div className='infomacoes'>
+
+          <div className="title_div">
+            <h2>{movie.title} <span className='data_lancamento'>({dataLanc})</span></h2>
+            <h3 className='movie_rate'><StarIcon className='star_icon' />{rate()}
+              <span className='spacer'>✦</span>
+              <span className='generos_span'> {generos}</span>
+              <span className='spacer'>✦</span>
+              <span>{movie.runtime} m</span></h3>
+            <h3 className='movie_rate tagline'>{movie.tagline}</h3>
+
+          </div>
+          <div className="money_data">
+            <h3 className='movie_rate'><SavingsIcon sx={{marginRight: 1}}/>Budget: ${formatNumberWithCommas(movie.budget)}</h3>
+            <h3 className='movie_rate' >< PaidIcon sx={{marginRight: 1}}/>Revenue: ${formatNumberWithCommas(movie.revenue)}</h3>
+          </div>
+          <div className="sinopse">
+            <h2>SINOPSE </h2>
+            <h3 className='movie_overview'> <span className='spacer'>✦</span> {movie.overview}</h3>
+          </div>
         </div>
 
       </div>

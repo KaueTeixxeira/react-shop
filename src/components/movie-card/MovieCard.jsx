@@ -24,27 +24,27 @@ const MovieCard = ({ movie }) => {
 
 
   return (
-    <Card sx={{ maxWidth: 200, minHeight: 355, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginBottom: 2, alignContent: 'space-between', bgcolor: '#000'}} className="card_movie">
+    <Link to={'/movie/' + movie.id}>
+    <Card sx={{ maxWidth: 200, minHeight: 355, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginBottom: 2, alignContent: 'space-between', borderRadius: '10px'}} className="card_movie">
       <CardMedia
         component="img"
         alt={movie.title}
-        image="/minions.jpg"
+        image="/elementos.jpg"
         className='img_movie' />
       <CardContent>
-        <Typography variant="h6" component="div" className='movie_tittle' sx={{ fontSize: 20, minWidth: 28, fontFamily: "'Sofia Sans Condensed', sans-serif", color: '#fff' }}>
+        <Typography variant="h6" component="div" className='movie_tittle' sx={{ fontSize: 20, minWidth: 28, fontFamily: "'Sofia Sans Condensed', sans-serif" }}>
           {truncateTitle(movie.title, 38)}
         </Typography>
-        <h3 className='movie_rate'><StarIcon className='star_icon'/>{movie.vote_average}</h3>
+        <h3 className='movie_rate_card'><StarIcon className='star_icon'/>{movie.vote_average}</h3>
       </CardContent>
       <CardActions sx={{
         display: 'flex',
         justifyContent: 'center'
       }}>
-        <Link to={'/movie/' + movie.id}>
-          <Button size="medium" className="animated-button" sx={{ color: "white" }}>More details</Button>
-        </Link>
+          <Button size="medium" className="animated-button" sx={{ color: "white", minWidth: 183,  borderRadius: '10px'}}>More details</Button>
       </CardActions>
     </Card>
+        </Link>
   )
 }
 
