@@ -24,7 +24,7 @@ const MovieCard = ({ movie }) => {
 
 
   return (
-    <Link to={'/movie/' + movie.id}>
+    <Link to={'/movie/' + movie.id} className="link">
     <Card sx={{ maxWidth: 200, minHeight: 355, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginBottom: 2, alignContent: 'space-between', borderRadius: '10px'}} className="card_movie">
       <CardMedia
         component="img"

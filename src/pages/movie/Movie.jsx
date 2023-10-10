@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-
+import { Skeleton } from '@mui/material';
 import SvgIcon from '@mui/material/SvgIcon';
 import Vibrant from 'node-vibrant';
 import SavingsIcon from '@mui/icons-material/Savings';
@@ -26,7 +26,7 @@ import "./Movie.css"
 const Movie = () => {
 
   const { id } = useParams()
-  const [movie, setMovie] = useState({})
+  const [movie, setMovie] = useState(null)
   const [dataLanc, setDataLanc] = useState("Indefinido")
   const [generos, setGeneros] = useState([])
 
@@ -41,14 +41,17 @@ const Movie = () => {
         gene += " / ";
       }
     });
-    setGeneros(gene);
-    console.log(response)
-    setMovie(response)
+    setTimeout(async () => {
+      setGeneros(gene);
+      console.log(response)
+      setMovie(response)
+    }, 1500);
   }
 
 
 
   useEffect(() => {
+    console.log()
     getMovie()
     Vibrant.from('http://localhost:5173/elementos.jpg').getPalette((err, palette) => {
       if (err) {
@@ -123,7 +126,7 @@ const Movie = () => {
   }
 
   return (
-    <>{movie &&
+    <>{movie ? (
       <div className='container_movie'>
         <img src="/elementos.jpg" alt={movie.title} />
         <div className='infomacoes'>
@@ -139,16 +142,53 @@ const Movie = () => {
 
           </div>
           <div className="money_data">
-            <h3 className='movie_rate'><SavingsIcon sx={{marginRight: 1}}/>Budget: ${formatNumberWithCommas(movie.budget)}</h3>
-            <h3 className='movie_rate' >< PaidIcon sx={{marginRight: 1}}/>Revenue: ${formatNumberWithCommas(movie.revenue)}</h3>
+            <h3 className='movie_rate'><SavingsIcon sx={{ marginRight: 1 }} />Budget: ${formatNumberWithCommas(movie.budget)}</h3>
+            <h3 className='movie_rate' >< PaidIcon sx={{ marginRight: 1 }} />Revenue: ${formatNumberWithCommas(movie.revenue)}</h3>
           </div>
           <div className="sinopse">
             <h2>SINOPSE </h2>
             <h3 className='movie_overview'> <span className='spacer'>✦</span> {movie.overview}</h3>
           </div>
         </div>
+      </div>
+    ) : (
+      <div className='container_movie'>
+
+        <Skeleton variant="rectangular" width={350} height={500} animation="wave" />
+        <div className='infomacoes'>
+          <div className="title_div">
+            <Skeleton variant="rectangular" width={500} height={50} animation="wave" />
+            <div className="divider"></div>
+            <Skeleton variant="rectangular" width={500} height={30} animation="wave" />
+            <div className="divider"></div>
+            <Skeleton variant="rectangular" width={500} height={30} animation="wave" />
+          </div>
+
+
+          <div className="money_data">
+            <div className="divider"></div>
+
+            <Skeleton variant="rectangular" width={300} height={30} animation="wave" />
+            <div className="divider"></div>
+            <Skeleton variant="rectangular" width={300} height={30} animation="wave" />
+
+
+          </div>
+          <div className="sinopse">
+            <div className="divider"></div>
+            <Skeleton variant="rectangular" width={200} height={40} animation="wave" />
+            <div className="divider"></div>
+            <Skeleton variant="rectangular" width={500} height={30} animation="wave" />
+
+            {/* <h2>SINOPSE </h2>
+            
+            <h3 className='movie_overview'> <span className='spacer'>✦</span> {movie.overview}</h3> */}
+          </div>
+        </div>
 
       </div>
+
+    )
     }</>
   )
 }
