@@ -2,15 +2,9 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
-import SearchIcon from '@mui/icons-material/Search';
-import InputBase from '@mui/material/InputBase';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles'; // tema branco no input easily
-import CssBaseline from '@mui/material/CssBaseline';
-import { styled, alpha } from '@mui/material/styles';
-
 
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
@@ -34,9 +28,9 @@ function Header() {
 
     const darkTheme = createTheme({
         palette: {
-          mode: 'dark',
+            mode: 'dark',
         },
-      });
+    });
 
 
 
@@ -71,21 +65,21 @@ function Header() {
                         </Typography>
                     </Link>
                     <form onSubmit={handleSubmit}>
-                    <ThemeProvider theme={darkTheme}>
-                        <TextField 
-                            id="search-bar"
-                            className="text"
-                            onInput={(e) => {
-                                setSearch(e.target.value);
-                            }}
-                            value={search}
-                            label="Search a movie"
-                            variant="outlined"
-                            placeholder="Search..."
-                            size="small"
-                            autoComplete='off'
-                        />
-                         </ThemeProvider>
+                        <ThemeProvider theme={darkTheme}>
+                            <TextField
+                                id="search-bar"
+                                className="text"
+                                onInput={(e) => {
+                                    setSearch(e.target.value);
+                                }}
+                                value={search}
+                                label="Search a movie"
+                                variant="outlined"
+                                placeholder="Search..."
+                                size="small"
+                                autoComplete='off'
+                            />
+                        </ThemeProvider>
                     </form>
                 </Toolbar>
             </Container>

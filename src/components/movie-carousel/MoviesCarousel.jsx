@@ -1,4 +1,3 @@
-import { Skeleton } from '@mui/material';
 import Slider from 'react-slick';
 import MovieCard from '../movie-card/MovieCard';
 import Title from '../title/Title';
@@ -62,7 +61,7 @@ const MoviesCarousel = ({ movies, title }) => {
             ))) :
             (
               Array.from({ length: 20 }).map((_, index) => (
-                <MovieCard key={index}  />
+                <MovieCard key={index} />
               ))
             )
           }

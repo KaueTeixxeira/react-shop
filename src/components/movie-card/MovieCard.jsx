@@ -6,7 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
-import { Skeleton } from '@mui/material'; // Certifique-se de importar Skeleton corretamente
+import { Skeleton } from '@mui/material';
 
 import StarIcon from '@mui/icons-material/Star';
 import './MovieCard.css';
@@ -97,7 +97,7 @@ const MovieCard = ({ movie }) => {
         width: '200px',
       }}
     >
-      <Skeleton width="100%" height="100%" variant="rounded"  sx={{background: 'linear-gradient(90deg, rgba(36,143,190,1) 0%, rgba(67,58,171,1) 49%, rgba(124,19,158,1) 100%)'}}/>
+      <Skeleton width="100%" height="100%" variant="rounded" sx={{ background: 'linear-gradient(90deg, rgba(36,143,190,1) 0%, rgba(67,58,171,1) 49%, rgba(124,19,158,1) 100%)' }} />
     </div>
   );
 };

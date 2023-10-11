@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import MovieService from '../../service/movie/MovieService'
 import MoviesCarousel from '../../components/movie-carousel/MoviesCarousel'
-import MovieCard from '../../components/movie-card/MovieCard'
 
 import './Home.css'
 import Slider from 'react-slick'
