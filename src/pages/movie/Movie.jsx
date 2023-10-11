@@ -52,7 +52,7 @@ const Movie = () => {
   useEffect(() => {
     console.log()
     getMovie()
-    Vibrant.from('http://localhost:5173/elementos.jpg').getPalette((err, palette) => {
+    Vibrant.from('http://localhost:5173/matrixx.jpg').getPalette((err, palette) => {
       if (err) {
         console.error('Erro ao extrair paleta de cores:', err);
         return;
@@ -127,7 +127,7 @@ const Movie = () => {
   return (
     <>{movie ? (
       <div className='container_movie'>
-        <img src="/elementos.jpg" alt={movie.title} />
+        <img src="/matrixx.jpg" alt={movie.title} />
         <div className='infomacoes'>
 
           <div className="title_div">

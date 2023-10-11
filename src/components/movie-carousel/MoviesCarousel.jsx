@@ -41,7 +41,6 @@ var settings = {
       }
     }
   ]
-
 };
 
 
@@ -57,17 +56,16 @@ const MoviesCarousel = ({ movies, title }) => {
       <div className='bg_carousel'>
 
         <Slider {...settings}>
-          {/* {movies.length > 0 ? (
+          {movies.length > 0 ? (
             movies.map((movie) => (
               <MovieCard key={movie.id} movie={movie} />
             ))) :
             (
-             <p style={{height: "200px"}}>AAAAAAAAAAAA</p>
+              Array.from({ length: 20 }).map((_, index) => (
+                <MovieCard key={index}  />
+              ))
             )
-          } */}
-          {movies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} /> // Arrumar esse componente para que fique as skeletons e não vazio quando estiver carregando a requisição
-            ))}
+          }
         </Slider>
       </div>
     </div>

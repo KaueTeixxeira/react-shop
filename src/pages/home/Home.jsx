@@ -16,7 +16,9 @@ const Home = () => {
 
   const getTopRatedMovies = async () => {
     const movies = await MovieService.getTopRatedMovies()
-    setTopMovies(movies.results)
+    setTimeout(async () => {
+      setTopMovies(movies.results)
+    }, 1000)
   }
 
   const getPopular = async () => {
@@ -41,10 +43,13 @@ const Home = () => {
   }
 
   useEffect(() => {
-    // getTopRatedMovies()
-    // getPopular()
-    // getUpComing()
-    // getNowPlaying()
+
+    setTimeout(async () => {
+    getTopRatedMovies()
+    getPopular()
+    getUpComing()
+    getNowPlaying()
+    }, 1500);
   }, [])
 
 
@@ -61,8 +66,8 @@ const Home = () => {
 
   return (
     <>
-      <MoviesCarousel movies={topMovies} title={"Top Movies"}></MoviesCarousel>
-      <MoviesCarousel movies={popular} title={"Popular"}></MoviesCarousel>
+      <MoviesCarousel movies={topMovies} title={"Top Movies"}/>
+      <MoviesCarousel movies={popular} title={"Popular"}/>
 
       <Slider {...configAdd}>
         {imageUrls.map((imageUrl, index) => (
@@ -71,8 +76,9 @@ const Home = () => {
           </div>
         ))}
       </Slider>
-      <MoviesCarousel movies={upcoming} title={"Up Coming"}></MoviesCarousel>
-      <MoviesCarousel movies={nowPlaying} title={"Now Playing"}></MoviesCarousel>
+      
+      <MoviesCarousel movies={upcoming} title={"Up Coming"}/>
+      <MoviesCarousel movies={nowPlaying} title={"Now Playing"}/>
 
 
     </>
