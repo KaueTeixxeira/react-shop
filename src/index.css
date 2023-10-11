@@ -14,3 +14,7 @@ body {
     background-color: #202020;
     color: white;
 }
+
+:focus-visible {
+  outline: none;
+}

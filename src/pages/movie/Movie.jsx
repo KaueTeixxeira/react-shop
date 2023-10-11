@@ -49,7 +49,6 @@ const Movie = () => {
   }
 
 
-
   useEffect(() => {
     console.log()
     getMovie()

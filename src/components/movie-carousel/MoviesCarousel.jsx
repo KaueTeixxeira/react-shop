@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { Skeleton } from '@mui/material';
 import Slider from 'react-slick';
 import MovieCard from '../movie-card/MovieCard';
 import Title from '../title/Title';
@@ -52,21 +52,24 @@ const MoviesCarousel = ({ movies, title }) => {
 
   return (
     <div className='carousel_container'>
-      <Title title={title}/>
+      <Title title={title} />
       <br></br>
       <div className='bg_carousel'>
 
-      <Slider {...settings}>
-        {movies.length > 0 ? (
-          movies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
+        <Slider {...settings}>
+          {/* {movies.length > 0 ? (
+            movies.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} />
             ))) :
             (
-              <p>Não a itens na lista</p>
-              )
-            }
-      </Slider>
-            </div>
+             <p style={{height: "200px"}}>AAAAAAAAAAAA</p>
+            )
+          } */}
+          {movies.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} /> // Arrumar esse componente para que fique as skeletons e não vazio quando estiver carregando a requisição
+            ))}
+        </Slider>
+      </div>
     </div>
   )
 }
