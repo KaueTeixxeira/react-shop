@@ -9,3 +9,6 @@
 ![image](https://github.com/KaueTeixxeira/react-shop/assets/110638994/21d68bdf-31c6-4afd-8c0b-69293aac10aa)
 ## Movie details
 ![Captura de tela 2023-10-17 150439](https://github.com/KaueTeixxeira/react-shop/assets/110638994/d2b7ab73-eb14-4bf7-8a97-7541d71a16b8)
+
+
+I need to change the images, thoso ones are static, because the network that I'm using deny all request for images. If you wanna try it, make sure that you swith the static image from the card and in the movie details, for the image that comes with the request. "{{movie.poster_path}}"
